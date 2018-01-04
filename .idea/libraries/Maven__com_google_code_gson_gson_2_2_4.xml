@@ -2,6 +2,8 @@
   <library name="Maven: com.google.code.gson:gson:2.2.4">
     <CLASSES>
       <root url="jar://$MAVEN_REPOSITORY$/com/google/code/gson/gson/2.2.4/gson-2.2.4.jar!/" />
+      <root url="file://$PROJECT_DIR$/../scribejava/scribejava-apis/target/classes" />
+      <root url="file://$PROJECT_DIR$/../scribejava/scribejava-core/target/classes" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$MAVEN_REPOSITORY$/com/google/code/gson/gson/2.2.4/gson-2.2.4-javadoc.jar!/" />

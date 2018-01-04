@@ -7,11 +7,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="public-client-adal4j-sample (1)" />
-        <module name="public-client-adal4j-sample (2)" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="public-client-adal4j-sample (1)" target="1.5" />
+      <module name="public-client-adal4j-sample" target="1.7" />
+      <module name="public-client-adal4j-sample (1)" target="1.7" />
       <module name="public-client-adal4j-sample (2)" target="1.7" />
     </bytecodeTargetLevel>
   </component>
