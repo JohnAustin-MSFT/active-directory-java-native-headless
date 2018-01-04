@@ -1,5 +1,6 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.net.URI;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -15,6 +16,8 @@ import com.microsoft.aad.adal4j.AuthenticationContext;
 import com.microsoft.aad.adal4j.AuthenticationResult;
 import com.github.scribejava.core.oauth.OAuth20Service;
 
+import static java.awt.Desktop.getDesktop;
+import static java.awt.Desktop.isDesktopSupported;
 
 
 public class PublicClient {
@@ -53,12 +56,16 @@ public class PublicClient {
 
 
         try (OAuth20Service service = new ServiceBuilder(CLIENT_ID)
-                .callback("http://localhost")
+                .callback("http://localhost:8080")
                 .scope("openid")
                 .apiSecret("mkjocRKSQ40|;lmERW843#~")
                 .build(MicrosoftAzureActiveDirectoryApi.instance())) {
             String authorizationUrl = service.getAuthorizationUrl();
             System.out.println(authorizationUrl);
+            if (isDesktopSupported()) {
+                getDesktop().browse(new URI(authorizationUrl));
+
+            }
             String authorizationCode = "";
             OAuth2AccessToken accessToken = service.getAccessToken(authorizationCode);
             String [] results = {
