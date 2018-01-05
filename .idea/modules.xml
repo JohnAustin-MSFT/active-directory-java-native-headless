@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/public-client-adal4j-sample (1).iml" filepath="$PROJECT_DIR$/public-client-adal4j-sample (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/public-client-adal4j-sample.iml" filepath="$PROJECT_DIR$/public-client-adal4j-sample.iml" />
     </modules>
   </component>
 </project>
