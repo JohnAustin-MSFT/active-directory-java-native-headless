@@ -51,3 +51,6 @@ gen-external-apklibs/
 # Intellj
 .settings/
 .libraries/
+
+# VSCode
+.vscode/

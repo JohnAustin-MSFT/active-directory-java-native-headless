@@ -11,7 +11,7 @@ import javax.naming.ServiceUnavailableException;
 import com.github.scribejava.apis.MicrosoftAzureActiveDirectoryApi;
 import com.github.scribejava.core.builder.ServiceBuilder;
 import com.github.scribejava.core.model.OAuth2AccessToken;
-import com.github.scribejava.core.model.OAuthAsyncRequestCallback;
+
 import com.microsoft.aad.adal4j.AuthenticationContext;
 import com.microsoft.aad.adal4j.AuthenticationResult;
 import com.github.scribejava.core.oauth.OAuth20Service;
@@ -52,6 +52,15 @@ public class PublicClient {
         }
     }
 
+    /*
+    This method implements the Authorization Grant flow for OAuth 2.0
+    A user is required to respond to the credentials challenge presented in the
+    browser window that is opened by this method. User presents credentials and the browser
+    window is redirected to an authorization page. User accepts permission requiests and an
+    authorization token is returned to the callback url.
+    In a breakpoint before the service.getAccessToken call, update the authorizationCode string variable
+    with the authorization code from the POST to the callback url.
+     */
     private static String[] getAccessTokenFromUserCredentials_20() throws Exception {
 
 
@@ -68,17 +77,16 @@ public class PublicClient {
             }
             String authorizationCode = "";
             OAuth2AccessToken accessToken = service.getAccessToken(authorizationCode);
-            String [] results = {
+            return new String[]{
                     accessToken.getAccessToken()
                     ,accessToken.getRefreshToken()
                     ,accessToken.getExpiresIn().toString()};
-            return results;
         }
 
     }
     private static AuthenticationResult getAccessTokenFromUserCredentials_10(
             String username, String password) throws Exception {
-        AuthenticationContext context = null;
+        AuthenticationContext context;
         AuthenticationResult result = null;
         ExecutorService service = null;
         try {
@@ -100,7 +108,9 @@ public class PublicClient {
             }
 
         } finally {
-            service.shutdown();
+            if (service != null){
+                service.shutdown();
+            }
         }
 
         if (result == null) {
