@@ -1,0 +1,53 @@
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+
+# Avoid ignoring Maven wrapper jar file (.jar files are usually ignored)
+!/.mvn/wrapper/maven-wrapper.jar
+## Eclipse
+.settings/
+.loadpath
+.metadata
+proguard/
+
+*.keystore
+*.orig
+*.log
+*.tmp
+*.bak
+
+## Android Studio
+*.apk
+*.ap_
+*.dex
+*.class
+*.iws
+*.ipr
+*.iml
+*~
+*.swp
+.idea/
+local.properties
+out/
+build/
+production/
+
+## Gradle
+.gradle/
+
+# generated files
+**/build/
+bin/
+gen/
+target/
+gen-external-apklibs/
+
+# Intellj
+.settings/
+.libraries/
